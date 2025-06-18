@@ -63,6 +63,7 @@ public final class AutoFarmHack extends Hack
 		seeds.put(Blocks.MELON_STEM, Items.MELON_SEEDS);
 		seeds.put(Blocks.NETHER_WART, Items.NETHER_WART);
 		seeds.put(Blocks.COCOA, Items.COCOA_BEANS);
+		seeds.put(Blocks.SWEET_BERRY_BUSH, Items.SWEET_BERRIES);
 	}
 	
 	private final HashMap<BlockPos, Item> plants = new HashMap<>();
@@ -213,6 +214,9 @@ public final class AutoFarmHack extends Hack
 		
 		if(block == Blocks.PUMPKIN || block == Blocks.MELON)
 			return true;
+
+		if (block == Blocks.SWEET_BERRY_BUSH)
+			    return state.get(SweetBerryBushBlock.AGE) == 3;
 		
 		if(block instanceof SugarCaneBlock)
 			return BlockUtils.getBlock(pos.down()) instanceof SugarCaneBlock
